@@ -1,15 +1,8 @@
-import random
-
 import pygame
 
 # PyGame Initialization
-pygame.init()
+# pygame.init()
 player_pos = pygame.Vector2(150, 350)
-
-
-def spawn_birds():
-    bird = pygame.image.load("images/bird.png")
-
 
 # Imports
 program_icon = pygame.image.load("images/icon.png")
@@ -33,12 +26,11 @@ while running:
     screen.fill((135, 206, 235))
 
     screen.blit(player_rotation, player_pos)
-    spawn_birds()
 
-    if pygame.key.get_pressed()[pygame.K_w]:
+    if pygame.key.get_pressed()[pygame.K_w] or pygame.key.get_pressed()[pygame.K_UP]:
         player_rotation = pygame.transform.rotate(player_icon, 5)
         player_pos = player_pos - pygame.Vector2(0, 5)
-    elif pygame.key.get_pressed()[pygame.K_s]:
+    elif pygame.key.get_pressed()[pygame.K_s] or pygame.key.get_pressed()[pygame.K_DOWN]:
         player_pos = player_pos + pygame.Vector2(0, 5)
         player_rotation = pygame.transform.rotate(player_icon, -5)
     else:
